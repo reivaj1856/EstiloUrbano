@@ -24,7 +24,7 @@
           alt="imagen de inicio de sesión" />
       </div>
 
-      <form
+      <form action="../../controllers/loginCliente/loginAction.php" method="post"
         class="  p-6  relative z-10 ">
         <div class="">
 
@@ -85,7 +85,7 @@
         </div>
         <div class="mt-12">
           <button
-            type="button" click="location.href='/app/views/AccessPublicViews/home.php"
+            type="submit"
             class="w-full py-2 px-4 text-[15px] font-medium tracking-wider rounded-md cursor-pointer text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
             Iniciar sesión
           </button>

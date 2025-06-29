@@ -10,7 +10,7 @@
 </head>
 
 <body>
-     <header
+    <header
     class="flex border-b border-gray-300 bg-white min-h-[70px] tracking-wide relative z-50">
     <div class="px-4 py-4 w-full flex items-center">
       <div
@@ -105,36 +105,19 @@
             </li>
             <li class="max-lg:border-b max-lg:border-gray-300 max-lg:py-3">
               <a
-                href="javascript:void(0)"
+                href="/app/views/ClientViews/reservations.php"
                 class="hover:text-yellow-400 text-gray-600 text-[18px] font-semibold block">Reservas</a>
             </li>
             <li class="max-lg:border-b max-lg:border-gray-300 max-lg:py-3">
               <a
-                href="javascript:void(0)"
-                class="hover:text-yellow-400 text-gray-600 text-[18px] font-semibold block">Blog</a>
-            </li>
-            <li class="max-lg:border-b max-lg:border-gray-300 max-lg:py-3">
-              <a
-                href="javascript:void(0)"
+                href="/app/views/AccessPublicViews/contact.php"
                 class="hover:text-yellow-400 text-gray-600 text-[18px] font-semibold block">Contacto</a>
             </li>
           </ul>
         </div>
 
         <div class="flex items-center space-x-8 max-lg:ml-auto">
-          <span class="relative">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20px"
-              class="cursor-pointer fill-[#333] hover:fill-blue-700 inline"
-              viewBox="0 0 64 64">
-              <path
-                d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
-                data-original="#000000" />
-            </svg>
-            <span
-              class="absolute left-auto -ml-1 top-0 rounded-full bg-yellow-400 px-1 py-0 text-xs text-white">0</span>
-          </span>
+
 
           <span class="relative">
             <svg
@@ -150,14 +133,13 @@
             <span
               class="absolute left-auto -ml-1 top-0 rounded-full bg-yellow-400 px-1 py-0 text-xs text-white">0</span>
           </span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 192.904 192.904"
-            width="20px"
-            class="cursor-pointer fill-[#333] hover:fill-blue-700">
-            <path
-              d="m190.707 180.101-47.078-47.077c11.702-14.072 18.752-32.142 18.752-51.831C162.381 36.423 125.959 0 81.191 0 36.422 0 0 36.423 0 81.193c0 44.767 36.422 81.187 81.191 81.187 19.688 0 37.759-7.049 51.831-18.751l47.079 47.078a7.474 7.474 0 0 0 5.303 2.197 7.498 7.498 0 0 0 5.303-12.803zM15 81.193C15 44.694 44.693 15 81.191 15c36.497 0 66.189 29.694 66.189 66.193 0 36.496-29.692 66.187-66.189 66.187C44.693 147.38 15 117.689 15 81.193z"></path>
-          </svg>
+          <form method="post" style="display:inline;" action="/app/controllers/loginCliente/logout.php">
+            <button type="submit"
+              class="px-5 py-2.5 rounded-lg cursor-pointer text-white text-sm tracking-wider font-medium border border-current outline-none bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-700">
+              Logout
+            </button>
+          </form>
+
 
           <button id="toggleOpen" class="lg:hidden cursor-pointer">
             <svg
@@ -192,9 +174,13 @@
                 <h2 class="text-slate-900 text-3xl font-bold mb-6">Maquillaje y peinado</h2>
                 <p class="mb-4 text-[15px] text-slate-600 leading-relaxed">Nuestros servicios de estética incluyen los mejores maquillajes y peinados de Costa Rica. Ya sea para graduaciones, bodas, fiestas, aniversarios, bautizos, cumpleaños, baby showers u otros eventos especiales, podés lucir maquillaje acorde a tu tipo de rostro y actividad. Sólo escogés el de tu preferencia y nosotros te lo hacemos.</p>
                 <p class="mb-8 text-[15px] text-slate-600 leading-relaxed">Contamos con expertos profesionales que te podrán ayudar a verte como querés para tu ocasión especial. Además, ofrecemos una alternativa de maquillaje vegano.</p>
-                <button type="button"
-                    class="px-5 py-2.5 rounded-lg text-white text-sm cursor-pointer tracking-wider font-medium border border-current outline-none bg-gradient-to-tr hover:bg-gradient-to-tl from-yellow-300 to-yellow-500">Solicitar una cita</button>
-
+                <form action="/app/views/ClientViews/booking.php" method="get" style="display:inline;">
+                    <input type="hidden" name="id" value="1">
+                    <button type="submit"
+                        class="px-5 py-2.5 rounded-lg text-white text-sm cursor-pointer tracking-wider font-medium border border-current outline-none bg-gradient-to-tr hover:bg-gradient-to-tl from-yellow-300 to-yellow-500">
+                        Solicitar una cita
+                    </button>
+                </form>
             </div>
             <div>
                 <img src="https://blog.tinkerlink.com/wp-content/uploads/2019/01/Dise%C3%B1o-sin-t%C3%ADtulo-14-1200x675.png" alt="hero Image" class="rounded-lg object-contain w-full h-full" />
@@ -210,105 +196,10 @@
 
         <div class="divide-y divide-gray-200">
 
-
-            <div class="accordion" role="accordion">
-                <button type="button"
-                    class="toggle-button cursor-pointer w-full text-base outline-none text-left font-semibold py-6 text-slate-900 hover:text-blue-600 flex items-center">
-                    <span class="mr-4">Maquillaje Social</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42" class="w-3 fill-current ml-auto shrink-0">
-                        <path class="plus"
-                            d="M37.059 16H26V4.941C26 2.224 23.718 0 21 0s-5 2.224-5 4.941V16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5H16v11.059C16 39.776 18.282 42 21 42s5-2.224 5-4.941V26h11.059C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z" />
-                        <path
-                            d="M37.059 16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5h32.118C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z" />
-                    </svg>
-                </button>
-                <div class="content invisible max-h-0 overflow-hidden transition-all duration-300">
-                    <p class="text-sm text-slate-600 leading-relaxed mb-1">60 minutos *No incluye pestañas
-                    </p>
-                    <p class="text-sm text-yellow-600 leading-relaxed">170 Bs
-                    </p>
-                </div>
-            </div>
-
-            <div class="accordion" role="accordion">
-                <button type="button"
-                    class="toggle-button cursor-pointer w-full text-base outline-none text-left font-semibold py-6 text-slate-900 hover:text-blue-600 flex items-center">
-                    <span class="mr-4">Maquillaje artístico para festivales</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42" class="w-3 fill-current ml-auto shrink-0">
-                        <path class="plus"
-                            d="M37.059 16H26V4.941C26 2.224 23.718 0 21 0s-5 2.224-5 4.941V16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5H16v11.059C16 39.776 18.282 42 21 42s5-2.224 5-4.941V26h11.059C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z" />
-                        <path
-                            d="M37.059 16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5h32.118C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z" />
-                    </svg>
-                </button>
-                <div class="content invisible max-h-0 overflow-hidden transition-all duration-300">
-                    <p class="text-sm text-slate-600 leading-relaxed mb-1">90 minutos *No incluye pestañas
-                    </p>
-                    <p class="text-sm text-yellow-600 leading-relaxed">170 Bs
-                    </p>
-                </div>
-            </div>
-
-
-            <div class="accordion" role="accordion">
-                <button type="button"
-                    class="toggle-button cursor-pointer w-full text-base outline-none text-left font-semibold py-6 text-slate-900 hover:text-blue-600 flex items-center">
-                    <span class="mr-4">Maquillaje de Novia</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42" class="w-3 fill-current ml-auto shrink-0">
-                        <path class="plus"
-                            d="M37.059 16H26V4.941C26 2.224 23.718 0 21 0s-5 2.224-5 4.941V16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5H16v11.059C16 39.776 18.282 42 21 42s5-2.224 5-4.941V26h11.059C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z" />
-                        <path
-                            d="M37.059 16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5h32.118C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z" />
-                    </svg>
-                </button>
-                <div class="content invisible max-h-0 overflow-hidden transition-all duration-300">
-                    <p class="text-sm text-slate-600 leading-relaxed mb-1">120 minutos *No incluye pestañas
-                    </p>
-                    <p class="text-sm text-yellow-600 leading-relaxed">240 Bs
-                    </p>
-                </div>
-            </div>
-
-
-            <div class="accordion" role="accordion">
-                <button type="button"
-                    class="toggle-button cursor-pointer w-full text-base outline-none text-left font-semibold py-6 text-slate-900 hover:text-blue-600 flex items-center">
-                    <span class="mr-4">Peinado recogido o moño</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42" class="w-3 fill-current ml-auto shrink-0">
-                        <path class="plus"
-                            d="M37.059 16H26V4.941C26 2.224 23.718 0 21 0s-5 2.224-5 4.941V16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5H16v11.059C16 39.776 18.282 42 21 42s5-2.224 5-4.941V26h11.059C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z" />
-                        <path
-                            d="M37.059 16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5h32.118C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z" />
-                    </svg>
-                </button>
-                <div class="content invisible max-h-0 overflow-hidden transition-all duration-300">
-                    <p class="text-sm text-slate-600 leading-relaxed mb-1">60 minutos *No incluye lavado ni blower.
-                    </p>
-                    <p class="text-sm text-yellow-600 leading-relaxed">150 Bs
-                    </p>
-                </div>
-            </div>
-
-
-            <div class="accordion" role="accordion">
-                <button type="button"
-                    class="toggle-button cursor-pointer w-full text-base outline-none text-left font-semibold py-6 text-slate-900 hover:text-blue-600 flex items-center">
-                    <span class="mr-4">Peinado de novia</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42" class="w-3 fill-current ml-auto shrink-0">
-                        <path class="plus"
-                            d="M37.059 16H26V4.941C26 2.224 23.718 0 21 0s-5 2.224-5 4.941V16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5H16v11.059C16 39.776 18.282 42 21 42s5-2.224 5-4.941V26h11.059C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z" />
-                        <path
-                            d="M37.059 16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5h32.118C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z" />
-                    </svg>
-                </button>
-                <div class="content invisible max-h-0 overflow-hidden transition-all duration-300">
-                    <p class="text-sm text-slate-600 leading-relaxed mb-1">90 minutos *No incluye lavado ni blower.
-                    </p>
-                    <p class="text-sm text-yellow-600 leading-relaxed">210 Bs
-                    </p>
-                </div>
-            </div>
-
+            <?php
+            $_GET['id_categoria'] = 1;
+            include '../../controllers/ServiciosCliente/serviciosSalon.php';
+            ?>
 
         </div>
     </div>
@@ -361,170 +252,160 @@
 
 </body>
 <footer class="tracking-wide bg-gray-50 px-10 pt-12 pb-6">
-    <div class="flex flex-wrap justify-between gap-10">
-        <div class="max-w-md">
-            <a href='javascript:void(0)'>
-                <img src="/public/assets/logo.png" alt="logo" class="w-36" />
-            </a>
-            <div class="mt-6">
-                <p class="text-slate-600 leading-relaxed text-sm">Bienvenido a Estilo Urbano, uno de los mejores salones de belleza en Bolivia. <br> Nuestro centro de belleza ofrece tratamientos capilares centrados en tu salud y bienestar capilar, para lo cual trabajamos con productos orgánicos, sin amoníaco, gluten free y sin formol.
+  <div class="flex flex-wrap justify-between gap-10">
+    <div class="max-w-md">
+      <a href='javascript:void(0)'>
+        <img src="/public/assets/logo.png" alt="logo" class="w-36" />
+      </a>
+      <div class="mt-6">
+        <p class="text-slate-600 leading-relaxed text-sm">Bienvenido a Estilo Urbano, uno de los mejores salones de belleza en Bolivia. <br> Nuestro centro de belleza ofrece tratamientos capilares centrados en tu salud y bienestar capilar, para lo cual trabajamos con productos orgánicos, sin amoníaco, gluten free y sin formol.
 
-                    ¡Vení y atendé las necesidades de tu cabello en manos profesionales!
+          ¡Vení y atendé las necesidades de tu cabello en manos profesionales!
 
-                </p>
-            </div>
-            <ul class="mt-10 flex space-x-5">
-                <li>
-                    <a href='javascript:void(0)'>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="fill-blue-600 w-8 h-8" viewBox="0 0 49.652 49.652">
-                            <path d="M24.826 0C11.137 0 0 11.137 0 24.826c0 13.688 11.137 24.826 24.826 24.826 13.688 0 24.826-11.138 24.826-24.826C49.652 11.137 38.516 0 24.826 0zM31 25.7h-4.039v14.396h-5.985V25.7h-2.845v-5.088h2.845v-3.291c0-2.357 1.12-6.04 6.04-6.04l4.435.017v4.939h-3.219c-.524 0-1.269.262-1.269 1.386v2.99h4.56z" data-original="#000000" />
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href='javascript:void(0)'>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 112.196 112.196">
-                            <circle cx="56.098" cy="56.097" r="56.098" fill="#007ab9" data-original="#007ab9" />
-                            <path fill="#fff" d="M89.616 60.611v23.128H76.207V62.161c0-5.418-1.936-9.118-6.791-9.118-3.705 0-5.906 2.491-6.878 4.903-.353.862-.444 2.059-.444 3.268v22.524h-13.41s.18-36.546 0-40.329h13.411v5.715c-.027.045-.065.089-.089.132h.089v-.132c1.782-2.742 4.96-6.662 12.085-6.662 8.822 0 15.436 5.764 15.436 18.149zm-54.96-36.642c-4.587 0-7.588 3.011-7.588 6.967 0 3.872 2.914 6.97 7.412 6.97h.087c4.677 0 7.585-3.098 7.585-6.97-.089-3.956-2.908-6.967-7.496-6.967zm-6.791 59.77H41.27v-40.33H27.865v40.33z" data-original="#f1f2f2" />
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href='javascript:void(0)'>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 152 152">
-                            <linearGradient id="a" x1="22.26" x2="129.74" y1="22.26" y2="129.74" gradientUnits="userSpaceOnUse">
-                                <stop offset="0" stop-color="#fae100" />
-                                <stop offset=".15" stop-color="#fcb720" />
-                                <stop offset=".3" stop-color="#ff7950" />
-                                <stop offset=".5" stop-color="#ff1c74" />
-                                <stop offset="1" stop-color="#6c1cd1" />
-                            </linearGradient>
-                            <g data-name="Layer 2">
-                                <g data-name="03.Instagram">
-                                    <rect width="152" height="152" fill="url(#a)" data-original="url(#a)" rx="76" />
-                                    <g fill="#fff">
-                                        <path fill="#ffffff10" d="M133.2 26c-11.08 20.34-26.75 41.32-46.33 60.9S46.31 122.12 26 133.2q-1.91-1.66-3.71-3.46A76 76 0 1 1 129.74 22.26q1.8 1.8 3.46 3.74z" data-original="#ffffff10" />
-                                        <path d="M94 36H58a22 22 0 0 0-22 22v36a22 22 0 0 0 22 22h36a22 22 0 0 0 22-22V58a22 22 0 0 0-22-22zm15 54.84A18.16 18.16 0 0 1 90.84 109H61.16A18.16 18.16 0 0 1 43 90.84V61.16A18.16 18.16 0 0 1 61.16 43h29.68A18.16 18.16 0 0 1 109 61.16z" data-original="#ffffff" />
-                                        <path d="m90.59 61.56-.19-.19-.16-.16A20.16 20.16 0 0 0 76 55.33 20.52 20.52 0 0 0 55.62 76a20.75 20.75 0 0 0 6 14.61 20.19 20.19 0 0 0 14.42 6 20.73 20.73 0 0 0 14.55-35.05zM76 89.56A13.56 13.56 0 1 1 89.37 76 13.46 13.46 0 0 1 76 89.56zm26.43-35.18a4.88 4.88 0 0 1-4.85 4.92 4.81 4.81 0 0 1-3.42-1.43 4.93 4.93 0 0 1 3.43-8.39 4.82 4.82 0 0 1 3.09 1.12l.1.1a3.05 3.05 0 0 1 .44.44l.11.12a4.92 4.92 0 0 1 1.1 3.12z" data-original="#ffffff" />
-                                    </g>
-                                </g>
-                            </g>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href='javascript:void(0)'>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 1227 1227">
-                            <path d="M613.5 0C274.685 0 0 274.685 0 613.5S274.685 1227 613.5 1227 1227 952.315 1227 613.5 952.315 0 613.5 0z" data-original="#000000" />
-                            <path fill="#fff" d="m680.617 557.98 262.632-305.288h-62.235L652.97 517.77 470.833 252.692H260.759l275.427 400.844-275.427 320.142h62.239l240.82-279.931 192.35 279.931h210.074L680.601 557.98zM345.423 299.545h95.595l440.024 629.411h-95.595z" data-original="#ffffff" />
-                        </svg>
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="max-lg:min-w-[140px]">
-            <h4 class="text-slate-900 font-semibold text-sm relative max-sm:cursor-pointer">Servicios</h4>
-
-            <ul class="mt-6 space-y-4">
-                <li>
-                    <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Desarrollo Web</a>
-                </li>
-                <li>
-                    <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Precios</a>
-                </li>
-                <li>
-                    <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Soporte</a>
-                </li>
-                <li>
-                    <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Portal de Clientes</a>
-                </li>
-                <li>
-                    <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Recursos</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="max-lg:min-w-[140px]">
-            <h4 class="text-slate-900 font-semibold text-sm relative max-sm:cursor-pointer">Plataformas</h4>
-            <ul class="space-y-4 mt-6">
-                <li>
-                    <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Hubspot</a>
-                </li>
-                <li>
-                    <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Servicios de Integración</a>
-                </li>
-                <li>
-                    <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Glosario de Marketing</a>
-                </li>
-                <li>
-                    <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">UIPath</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="max-lg:min-w-[140px]">
-            <h4 class="text-slate-900 font-semibold text-sm relative max-sm:cursor-pointer">Compañía</h4>
-
-            <ul class="space-y-4 mt-6">
-                <li>
-                    <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Sobre nosotros</a>
-                </li>
-                <li>
-                    <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Carreras</a>
-                </li>
-                <li>
-                    <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Blog</a>
-                </li>
-                <li>
-                    <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Portafolio</a>
-                </li>
-                <li>
-                    <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Eventos</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="max-lg:min-w-[140px]">
-            <h4 class="text-slate-900 font-semibold text-sm relative max-sm:cursor-pointer">Adicional</h4>
-
-            <ul class="space-y-4 mt-6">
-                <li>
-                    <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Preguntas Frecuentes</a>
-                </li>
-                <li>
-                    <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Socios</a>
-                </li>
-                <li>
-                    <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Mapa del sitio</a>
-                </li>
-                <li>
-                    <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Contacto</a>
-                </li>
-                <li>
-                    <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Noticias</a>
-                </li>
-            </ul>
-        </div>
+        </p>
+      </div>
+      <ul class="mt-10 flex space-x-5">
+        <li>
+          <a href='javascript:void(0)'>
+            <svg xmlns="http://www.w3.org/2000/svg" class="fill-blue-600 w-8 h-8" viewBox="0 0 49.652 49.652">
+              <path d="M24.826 0C11.137 0 0 11.137 0 24.826c0 13.688 11.137 24.826 24.826 24.826 13.688 0 24.826-11.138 24.826-24.826C49.652 11.137 38.516 0 24.826 0zM31 25.7h-4.039v14.396h-5.985V25.7h-2.845v-5.088h2.845v-3.291c0-2.357 1.12-6.04 6.04-6.04l4.435.017v4.939h-3.219c-.524 0-1.269.262-1.269 1.386v2.99h4.56z" data-original="#000000" />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href='javascript:void(0)'>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 112.196 112.196">
+              <circle cx="56.098" cy="56.097" r="56.098" fill="#007ab9" data-original="#007ab9" />
+              <path fill="#fff" d="M89.616 60.611v23.128H76.207V62.161c0-5.418-1.936-9.118-6.791-9.118-3.705 0-5.906 2.491-6.878 4.903-.353.862-.444 2.059-.444 3.268v22.524h-13.41s.18-36.546 0-40.329h13.411v5.715c-.027.045-.065.089-.089.132h.089v-.132c1.782-2.742 4.96-6.662 12.085-6.662 8.822 0 15.436 5.764 15.436 18.149zm-54.96-36.642c-4.587 0-7.588 3.011-7.588 6.967 0 3.872 2.914 6.97 7.412 6.97h.087c4.677 0 7.585-3.098 7.585-6.97-.089-3.956-2.908-6.967-7.496-6.967zm-6.791 59.77H41.27v-40.33H27.865v40.33z" data-original="#f1f2f2" />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href='javascript:void(0)'>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 152 152">
+              <linearGradient id="a" x1="22.26" x2="129.74" y1="22.26" y2="129.74" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#fae100" />
+                <stop offset=".15" stop-color="#fcb720" />
+                <stop offset=".3" stop-color="#ff7950" />
+                <stop offset=".5" stop-color="#ff1c74" />
+                <stop offset="1" stop-color="#6c1cd1" />
+              </linearGradient>
+              <g data-name="Layer 2">
+                <g data-name="03.Instagram">
+                  <rect width="152" height="152" fill="url(#a)" data-original="url(#a)" rx="76" />
+                  <g fill="#fff">
+                    <path fill="#ffffff10" d="M133.2 26c-11.08 20.34-26.75 41.32-46.33 60.9S46.31 122.12 26 133.2q-1.91-1.66-3.71-3.46A76 76 0 1 1 129.74 22.26q1.8 1.8 3.46 3.74z" data-original="#ffffff10" />
+                    <path d="M94 36H58a22 22 0 0 0-22 22v36a22 22 0 0 0 22 22h36a22 22 0 0 0 22-22V58a22 22 0 0 0-22-22zm15 54.84A18.16 18.16 0 0 1 90.84 109H61.16A18.16 18.16 0 0 1 43 90.84V61.16A18.16 18.16 0 0 1 61.16 43h29.68A18.16 18.16 0 0 1 109 61.16z" data-original="#ffffff" />
+                    <path d="m90.59 61.56-.19-.19-.16-.16A20.16 20.16 0 0 0 76 55.33 20.52 20.52 0 0 0 55.62 76a20.75 20.75 0 0 0 6 14.61 20.19 20.19 0 0 0 14.42 6 20.73 20.73 0 0 0 14.55-35.05zM76 89.56A13.56 13.56 0 1 1 89.37 76 13.46 13.46 0 0 1 76 89.56zm26.43-35.18a4.88 4.88 0 0 1-4.85 4.92 4.81 4.81 0 0 1-3.42-1.43 4.93 4.93 0 0 1 3.43-8.39 4.82 4.82 0 0 1 3.09 1.12l.1.1a3.05 3.05 0 0 1 .44.44l.11.12a4.92 4.92 0 0 1 1.1 3.12z" data-original="#ffffff" />
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href='javascript:void(0)'>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 1227 1227">
+              <path d="M613.5 0C274.685 0 0 274.685 0 613.5S274.685 1227 613.5 1227 1227 952.315 1227 613.5 952.315 0 613.5 0z" data-original="#000000" />
+              <path fill="#fff" d="m680.617 557.98 262.632-305.288h-62.235L652.97 517.77 470.833 252.692H260.759l275.427 400.844-275.427 320.142h62.239l240.82-279.931 192.35 279.931h210.074L680.601 557.98zM345.423 299.545h95.595l440.024 629.411h-95.595z" data-original="#ffffff" />
+            </svg>
+          </a>
+        </li>
+      </ul>
     </div>
 
-    <hr class="mt-10 mb-6 border-gray-300" />
+    <div class="max-lg:min-w-[140px]">
+      <h4 class="text-slate-900 font-semibold text-sm relative max-sm:cursor-pointer">Servicios</h4>
 
-    <div class="flex flex-wrap max-md:flex-col gap-4">
-        <ul class="md:flex md:space-x-6 max-md:space-y-2">
-            <li>
-                <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Términos de Servicio</a>
-            </li>
-            <li>
-                <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Política de Privacidad</a>
-            </li>
-            <li>
-                <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Seguridad</a>
-            </li>
-        </ul>
-
-        <p class="text-slate-600 text-sm md:ml-auto">© Estilo Urbano. Todos los derechos reservados.</p>
+      <ul class="mt-6 space-y-4">
+        <li>
+          <a href='/app//views/AccessPublicViews/service-beauty.php' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Salon de belleza</a>
+        </li>
+        <li>
+          <a href='/app/views/AccessPublicViews/service-hair-health.php' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Salud Capilar</a>
+        </li>
+        <li>
+          <a href='/app/views/AccessPublicViews/service-make-up.php' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Maquillaje y peinado</a>
+        </li>
+        <li>
+          <a href='/app/views/AccessPublicViews/service-manicure-and-pedicure.php' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Maniquiur y pediquiur</a>
+        </li>
+      </ul>
     </div>
+
+    <div class="max-lg:min-w-[140px]">
+      <h4 class="text-slate-900 font-semibold text-sm relative max-sm:cursor-pointer">Tienda de productos</h4>
+      <ul class="space-y-4 mt-6">
+        <li>
+          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Cosmeticos</a>
+        </li>
+        <li>
+          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Cremas</a>
+        </li>
+        <li>
+          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Maquillaje</a>
+        </li>
+        
+      </ul>
+    </div>
+
+    <div class="max-lg:min-w-[140px]">
+      <h4 class="text-slate-900 font-semibold text-sm relative max-sm:cursor-pointer">Contactanos</h4>
+
+      <ul class="space-y-4 mt-6">
+        <li>
+          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Contacto</a>
+        </li>
+        <li>
+          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Ubicacion</a>
+        </li>
+        <li>
+          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Facebook</a>
+        </li>
+        <li>
+          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Instagram</a>
+        </li>
+        <li>
+          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Tiktok</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="max-lg:min-w-[140px]">
+      <h4 class="text-slate-900 font-semibold text-sm relative max-sm:cursor-pointer">Adicional</h4>
+
+      <ul class="space-y-4 mt-6">
+        <li>
+          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Preguntas Frecuentes</a>
+        </li>
+        <li>
+          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Socios</a>
+        </li>
+        <li>
+          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Mapa del sitio</a>
+        </li>
+        <li>
+          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Noticias</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="mt-10 mb-6 border-gray-300" />
+
+  <div class="flex flex-wrap max-md:flex-col gap-4">
+    <ul class="md:flex md:space-x-6 max-md:space-y-2">
+      <li>
+        <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Términos de Servicio</a>
+      </li>
+      <li>
+        <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Política de Privacidad</a>
+      </li>
+      <li>
+        <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Seguridad</a>
+      </li>
+    </ul>
+  </div>
 </footer>
 
 <script>

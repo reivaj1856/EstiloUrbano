@@ -105,36 +105,19 @@
             </li>
             <li class="max-lg:border-b max-lg:border-gray-300 max-lg:py-3">
               <a
-                href="javascript:void(0)"
+                href="/app/views/ClientViews/reservations.php"
                 class="hover:text-yellow-400 text-gray-600 text-[18px] font-semibold block">Reservas</a>
             </li>
             <li class="max-lg:border-b max-lg:border-gray-300 max-lg:py-3">
               <a
-                href="javascript:void(0)"
-                class="hover:text-yellow-400 text-gray-600 text-[18px] font-semibold block">Blog</a>
-            </li>
-            <li class="max-lg:border-b max-lg:border-gray-300 max-lg:py-3">
-              <a
-                href="javascript:void(0)"
+                href="/app/views/AccessPublicViews/contact.php"
                 class="hover:text-yellow-400 text-gray-600 text-[18px] font-semibold block">Contacto</a>
             </li>
           </ul>
         </div>
 
         <div class="flex items-center space-x-8 max-lg:ml-auto">
-          <span class="relative">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20px"
-              class="cursor-pointer fill-[#333] hover:fill-blue-700 inline"
-              viewBox="0 0 64 64">
-              <path
-                d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
-                data-original="#000000" />
-            </svg>
-            <span
-              class="absolute left-auto -ml-1 top-0 rounded-full bg-yellow-400 px-1 py-0 text-xs text-white">0</span>
-          </span>
+
 
           <span class="relative">
             <svg
@@ -150,14 +133,13 @@
             <span
               class="absolute left-auto -ml-1 top-0 rounded-full bg-yellow-400 px-1 py-0 text-xs text-white">0</span>
           </span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 192.904 192.904"
-            width="20px"
-            class="cursor-pointer fill-[#333] hover:fill-blue-700">
-            <path
-              d="m190.707 180.101-47.078-47.077c11.702-14.072 18.752-32.142 18.752-51.831C162.381 36.423 125.959 0 81.191 0 36.422 0 0 36.423 0 81.193c0 44.767 36.422 81.187 81.191 81.187 19.688 0 37.759-7.049 51.831-18.751l47.079 47.078a7.474 7.474 0 0 0 5.303 2.197 7.498 7.498 0 0 0 5.303-12.803zM15 81.193C15 44.694 44.693 15 81.191 15c36.497 0 66.189 29.694 66.189 66.193 0 36.496-29.692 66.187-66.189 66.187C44.693 147.38 15 117.689 15 81.193z"></path>
-          </svg>
+          <form method="post" style="display:inline;" action="/app/controllers/loginCliente/logout.php">
+            <button type="submit"
+              class="px-5 py-2.5 rounded-lg cursor-pointer text-white text-sm tracking-wider font-medium border border-current outline-none bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-700">
+              Logout
+            </button>
+          </form>
+
 
           <button id="toggleOpen" class="lg:hidden cursor-pointer">
             <svg
@@ -278,9 +260,9 @@
 
       </div>
 
-      
-      </div>
+
     </div>
+  </div>
   </div>
 
 </body>
@@ -352,59 +334,54 @@
 
       <ul class="mt-6 space-y-4">
         <li>
-          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Desarrollo Web</a>
+          <a href='/app//views/AccessPublicViews/service-beauty.php' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Salon de belleza</a>
         </li>
         <li>
-          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Precios</a>
+          <a href='/app/views/AccessPublicViews/service-hair-health.php' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Salud Capilar</a>
         </li>
         <li>
-          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Soporte</a>
+          <a href='/app/views/AccessPublicViews/service-make-up.php' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Maquillaje y peinado</a>
         </li>
         <li>
-          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Portal de Clientes</a>
-        </li>
-        <li>
-          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Recursos</a>
+          <a href='/app/views/AccessPublicViews/service-manicure-and-pedicure.php' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Maniquiur y pediquiur</a>
         </li>
       </ul>
     </div>
 
     <div class="max-lg:min-w-[140px]">
-      <h4 class="text-slate-900 font-semibold text-sm relative max-sm:cursor-pointer">Plataformas</h4>
+      <h4 class="text-slate-900 font-semibold text-sm relative max-sm:cursor-pointer">Tienda de productos</h4>
       <ul class="space-y-4 mt-6">
         <li>
-          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Hubspot</a>
+          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Cosmeticos</a>
         </li>
         <li>
-          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Servicios de Integración</a>
+          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Cremas</a>
         </li>
         <li>
-          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Glosario de Marketing</a>
+          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Maquillaje</a>
         </li>
-        <li>
-          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">UIPath</a>
-        </li>
+
       </ul>
     </div>
 
     <div class="max-lg:min-w-[140px]">
-      <h4 class="text-slate-900 font-semibold text-sm relative max-sm:cursor-pointer">Compañía</h4>
+      <h4 class="text-slate-900 font-semibold text-sm relative max-sm:cursor-pointer">Contactanos</h4>
 
       <ul class="space-y-4 mt-6">
         <li>
-          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Sobre nosotros</a>
+          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Contacto</a>
         </li>
         <li>
-          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Carreras</a>
+          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Ubicacion</a>
         </li>
         <li>
-          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Blog</a>
+          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Facebook</a>
         </li>
         <li>
-          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Portafolio</a>
+          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Instagram</a>
         </li>
         <li>
-          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Eventos</a>
+          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Tiktok</a>
         </li>
       </ul>
     </div>
@@ -421,9 +398,6 @@
         </li>
         <li>
           <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Mapa del sitio</a>
-        </li>
-        <li>
-          <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Contacto</a>
         </li>
         <li>
           <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Noticias</a>
@@ -446,6 +420,8 @@
         <a href='javascript:void(0)' class="hover:text-slate-900 text-slate-600 text-sm font-normal">Seguridad</a>
       </li>
     </ul>
+  </div>
+</footer>
 
 </html>
 <script>
