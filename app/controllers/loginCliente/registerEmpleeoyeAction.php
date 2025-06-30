@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($stmt_emp->execute()) {
             echo "✅ Empleado registrado correctamente.";
-            header('Location: ../../views/loginViews/login.php');
+            header('Location: ../../views/Admin/homeSupervisor.php');
             exit;
 
         }

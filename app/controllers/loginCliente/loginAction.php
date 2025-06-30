@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     }
                     break;
                 case 'administrador':
-                    header('Location: /app/views/adminViews/dashboard.php');
+                    header('Location: /app/views/Admin/homeSupervisor.php');
                     break;
                 default:
                     

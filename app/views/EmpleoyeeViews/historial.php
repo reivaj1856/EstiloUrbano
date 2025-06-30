@@ -116,7 +116,7 @@ require_once '../../config/conexion.php'; // Ajusta la ruta según tu estructura
             <div class="max-w-screen-lg mx-auto">
                 <div class="border-b border-gray-300 pb-4">
                     <div class="flex items-center flex-wrap gap-4">
-                        <h3 class="text-2xl font-semibold text-slate-900">Historial de trabajo </h3>
+                        <h3 class="text-2xl font-semibold text-slate-900">Trabajos completados </h3>
                         <div class="ml-auto">
                             <select class="appearance-none cursor-pointer bg-white border border-gray-300 outline-0 px-4 py-2 text-slate-900 rounded-md text-[15px]">
                                 <option>Trabajos realizados</option>
@@ -142,7 +142,14 @@ require_once '../../config/conexion.php'; // Ajusta la ruta según tu estructura
                         //Ejemplo de consulta SQL para obtener las reservas de un usuario:
                         // Conexión a la base de datos (ajusta los datos de conexión según tu configuración)
                         try {
-                            $stmt = $conexion->prepare("SELECT r.*,s.precio AS precio, s.nombre AS nombre, u.nombre AS nombre_usu, u.apellido AS apellido FROM reservas r INNER JOIN empleados e ON e.id = r.id_empleado INNER JOIN usuarios u ON u.id = r.id_usuario INNER JOIN servicios s ON s.id = r.id_servicio WHERE e.id_usuario = ? and r.estado = 'realizado' ORDER BY r.fecha_reserva DESC, r.hora_reserva DESC");
+                            $stmt = $conexion->prepare
+                            ("SELECT r.*, s.precio AS precio,r.id as iddelete, s.nombre AS nombre, u.nombre AS nombre_usu, u.apellido AS apellido 
+                            FROM reservas r 
+                            INNER JOIN empleados e ON e.id = r.id_empleado 
+                            INNER JOIN usuarios u ON u.id = e.id_usuario
+                            INNER JOIN servicios s ON s.id = r.id_servicio 
+                            WHERE e.id_usuario = ? and r.estado = 'realizado' || r.estado = 'confirmado' AND e.id_usuario = $id_usuario
+                            ORDER BY r.fecha_reserva DESC, r.hora_reserva DESC");
                             $stmt->bind_param("i", $id_usuario); // "i" = integer
                             $stmt->execute();
 
@@ -152,7 +159,7 @@ require_once '../../config/conexion.php'; // Ajusta la ruta según tu estructura
 
                             } else {
                                 $reservas = [];
-                                echo '<div class="py-8 text-center text-gray-500">Todavia no realizo ningun trabajo.</div>';
+                                echo '<div class="py-8 text-center text-gray-500">No tiene una lista de trabajos para el dia de hoy.</div>';
                             }
                         } catch (PDOException $e) {
                             echo '<div class="py-8 text-center text-red-500">Error al conectar con la base de datos.</div>';
@@ -206,6 +213,15 @@ require_once '../../config/conexion.php'; // Ajusta la ruta según tu estructura
                                 <div class="md:ml-auto">
                                     <h6 class="text-[15px] font-medium text-slate-500">Precio</h6>
                                     <p class="text-[15px] text-slate-900 font-medium mt-2">$<?php echo number_format($reserva['precio'], 2); ?></p>
+
+
+                                    <form method="post" onsubmit="return confirm('¿Estás seguro de cancelar esta reserva?');" action="/app/controllers/ServiciosCliente/cancel_quoteEmpleoye.php">
+                                        <input type="hidden" name="cancelar_reserva_id" value="<?php echo $reserva['iddelete']; ?>">
+                                        <button type="submit"
+                                            class="px-3 py-2 rounded-lg text-white text-sm tracking-wider font-medium border border-current outline-none bg-gray-400 disabled:cursor-not-allowed">
+                                            Cancelar
+                                        </button>
+                                    </form>
 
                                 </div>
                             </div>

@@ -102,12 +102,14 @@ CREATE TABLE OrdenDetalle (
 CREATE TABLE Pagos (
     id INT PRIMARY KEY AUTO_INCREMENT,
     id_usuario INT,
+    id_servicio INT,
     tipo_pago ENUM('producto', 'servicio'),
     monto DECIMAL(10,2),
     fecha_pago DATETIME DEFAULT CURRENT_TIMESTAMP,
     metodo_pago VARCHAR(50),
     descripcion TEXT,
-    FOREIGN KEY (id_usuario) REFERENCES Usuarios(id)
+    FOREIGN KEY (id_usuario) REFERENCES Usuarios(id),
+    FOREIGN KEY (id_servicio) REFERENCES Servicios(id)
 );
 
 CREATE TABLE HistorialPagos (

@@ -63,7 +63,7 @@ require_once '../../config/conexion.php'; // Ajusta la ruta según tu estructura
                 href="/app/views/AdminEmpleoyee/modificarcita.php"
                 class="hover:text-yellow-400 text-[18px] font-semibold text-gray-600 block">Modificar Citas</a>
             </li>
-            
+
             <li class="max-lg:border-b max-lg:border-gray-300 max-lg:py-3">
               <a
                 href="/app/views/AdminEmpleoyee/cobrarcitas.php"
@@ -74,14 +74,14 @@ require_once '../../config/conexion.php'; // Ajusta la ruta según tu estructura
                 href="/app/views/AdminEmpleoyee/pagarEmpleados.php"
                 class="hover:text-yellow-400 text-gray-600 text-[18px] font-semibold block">Pagar Empleados</a>
             </li>
-            
+
           </ul>
         </div>
 
         <div class="flex items-center space-x-8 max-lg:ml-auto">
 
 
-         
+
           <form method="post" style="display:inline;" action="/app/controllers/loginCliente/logout.php">
             <button type="submit"
               class="px-5 py-2.5 rounded-lg cursor-pointer text-white text-sm tracking-wider font-medium border border-current outline-none bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-700">
@@ -108,93 +108,132 @@ require_once '../../config/conexion.php'; // Ajusta la ruta según tu estructura
   </header>
 
   <!-- Portada Noticias -->
-<div
-  class="w-full h-[250px] md:h-[250px] bg-no-repeat bg-cover bg-center flex items-center justify-center"
-  style="background-image: url(https://cdn.shopify.com/s/files/1/0479/4558/0694/files/chio-lecca-blog-estilo-urbano-hip-hop.jpg?v=1721338322);">
-  <div class="container mx-auto text-center">
-    <h2 class="text-5xl md:text-6xl font-bold text-white mb-6">Noticias Estilo Urbano</h2>
-  </div>
-</div>
 
-<!-- Cuerpo Noticias -->
-<div class="p-6">
-  <div class="max-w-screen-xl max-md:max-w-lg mx-auto">
-    <div class="bg-white p-6 sm:p-8 text-center">
-      <h3 class="text-2xl font-semibold text-slate-900 mb-4">Lo último en nuestro salón</h3>
-      <p class="text-slate-600 text-lg">
-        Descubre las últimas novedades, promociones, y eventos especiales de nuestro salón de estética en Bolivia.
-        ¡Entérate de todo lo nuevo que tenemos para ti en Estilo Urbano!
-      </p>
-    </div>
-
-    <div class="p-4 mx-auto lg:max-w-8xl md:max-w-8xl">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-        <!-- Noticia 1 -->
-        <div class="bg-white flex flex-col rounded-sm overflow-hidden shadow-md hover:scale-[1.01] transition-all">
-          <a href="#" class="block">
-            <img src="https://impulsapopular.com/wp-content/uploads/2019/06/4504-Pasos-para-abrir-un-sal%C3%B3n-de-belleza.jpg"
-              alt="Nueva apertura"
-              class="w-full aspect-[18/24] object-cover object-right" />
-            <div class="p-4">
-              <h5 class="text-base font-semibold text-slate-900">¡Nueva sede en Cochabamba!</h5>
-              <p class="mt-2 text-sm text-slate-700">
-                Estilo Urbano abre sus puertas en Cochabamba con servicios exclusivos y promociones por inauguración.
-              </p>
+  <div class="">
+    <!-- Author: FormBold Team -->
+    <div class="p-4">
+      <div class="max-w-screen-lg mx-auto">
+        <div class="border-b border-gray-300 pb-4">
+          <div class="flex items-center flex-wrap gap-4">
+            <h3 class="text-2xl font-semibold text-slate-900">Reservaciones </h3>
+            <div class="ml-auto">
+              <select class="appearance-none cursor-pointer bg-white border border-gray-300 outline-0 px-4 py-2 text-slate-900 rounded-md text-[15px]">
+                <option>Todas las reservaciones</option>
+                
+              </select>
             </div>
-          </a>
+          </div>
         </div>
 
-        <!-- Noticia 2 -->
-        <div class="bg-white flex flex-col rounded-sm overflow-hidden shadow-md hover:scale-[1.01] transition-all">
-          <a href="#" class="block">
-            <img src="https://thenailbarspany.com/wp-content/uploads/2024/09/2728.jpg"
-              alt="Manicure" class="w-full aspect-[18/24] object-cover object-top" />
-            <div class="p-4">
-              <h5 class="text-base font-semibold text-slate-900">Tendencias en uñas 2025</h5>
-              <p class="mt-2 text-sm text-slate-700">
-                Descubre los estilos de manicure más solicitados esta temporada. ¡Te damos los mejores tips!
-              </p>
-            </div>
-          </a>
-        </div>
+        <div class="divide-y divide-gray-300 mt-6">
 
-        <!-- Noticia 3 -->
-        <div class="bg-white flex flex-col rounded-sm overflow-hidden shadow-md hover:scale-[1.01] transition-all">
-          <a href="#" class="block">
-            <img src="https://www.dermahg.es/wp-content/uploads/2019/07/Salud_Capilar.jpg"
-              alt="Cuidado capilar"
-              class="w-full aspect-[18/24] object-cover object-right" />
-            <div class="p-4">
-              <h5 class="text-base font-semibold text-slate-900">Nuevos tratamientos capilares</h5>
-              <p class="mt-2 text-sm text-slate-700">
-                Incorporamos tratamientos orgánicos, sin amoníaco y 100% veganos para el cuidado de tu cabello.
-              </p>
-            </div>
-          </a>
-        </div>
+          <?php
 
-        <!-- Noticia 4 -->
-        <div class="bg-white flex flex-col rounded-sm overflow-hidden shadow-md hover:scale-[1.01] transition-all">
-          <a href="#" class="block">
-            <img src="https://blog.tinkerlink.com/wp-content/uploads/2019/01/Dise%C3%B1o-sin-t%C3%ADtulo-14-1200x675.png"
-              alt="Makeup news"
-              class="w-full aspect-[18/24] object-cover object-left" />
-            <div class="p-4">
-              <h5 class="text-base font-semibold text-slate-900">Curso gratuito de automaquillaje</h5>
-              <p class="mt-2 text-sm text-slate-700">
-                Inscríbete gratis a nuestro curso virtual de automaquillaje para clientes del salón. ¡Cupos limitados!
-              </p>
-            </div>
-          </a>
-        </div>
 
+          if (!isset($_SESSION['id_usuario'])) {
+            // Redirige al login si no está logueado
+            header('Location: /login.php');
+            exit;
+          }
+
+          $id_usuario = $_SESSION['id_usuario']; // O como obtengas el id del usuario
+
+          if ($id_usuario) {
+            //Ejemplo de consulta SQL para obtener las reservas de un usuario:
+            // Conexión a la base de datos (ajusta los datos de conexión según tu configuración)
+            try {
+              $stmt = $conexion->prepare("SELECT r.*,s.precio AS precio,e.id_categoria as categoriaE, s.nombre AS nombre, u.nombre AS nombre_usu, u.apellido AS apellido FROM reservas r INNER JOIN empleados e ON e.id = r.id_empleado INNER JOIN usuarios u ON u.id = e.id_usuario INNER JOIN servicios s ON s.id = r.id_servicio where r.estado !='confirmado' and r.estado !='cancelado'  ORDER BY r.fecha_reserva DESC, r.hora_reserva DESC");
+              // "i" = integer
+              $stmt->execute();
+
+              $resultado = $stmt->get_result();
+              if ($resultado->num_rows > 0) {
+                $reservas = $resultado->fetch_all(MYSQLI_ASSOC);
+              } else {
+                $reservas = [];
+              }
+            } catch (PDOException $e) {
+              echo '<div class="py-8 text-center text-red-500">Error al conectar con la base de datos.</div>';
+              $reservas = [];
+            }
+
+            foreach ($reservas as $reserva) {
+              // Puedes ajustar los campos según tu base de datos
+          ?>
+              <div class="grid grid-cols-5 max-md:grid-cols-2 items-start justify-between gap-6 py-4">
+                <div class="md:col-span-2 flex items-start gap-4 max-sm:flex-col">
+                  <?php
+                  if (!empty($reserva['imagen'])) {
+                    $imgSrc = 'data:image/jpeg;base64,' . base64_encode($reserva['imagen']);
+                  } else {
+                    $imgSrc = 'https://media.istockphoto.com/id/853924196/es/foto/peluquer%C3%ADa-mujer-en-pie-en-el-sal%C3%B3n-de.jpg?s=612x612&w=0&k=20&c=fno8_zpLJQaHqOLoVDI0NGu0l9Y-l5-5ka0uOEnWzT0=';
+                  }
+                  ?>
+
+                  <div class="bg-gray-100 p-2 rounded-lg w-20 h-20 shrink-0">
+                    <img src="<?php echo $imgSrc; ?>" class="w-full h-full object-contain" />
+                  </div>
+
+                  <div>
+                    <h6 class="text-[15px] font-semibold text-slate-900"><?php echo htmlspecialchars($reserva['nombre']); ?></h6>
+                    <div class="mt-2">
+                      <p class="text-[15px] text-slate-500 font-medium">Empleada : <span class="ml-1 text-slate-900"><?php echo htmlspecialchars($reserva['nombre_usu']) . " " . htmlspecialchars($reserva['apellido']) ?></span></p>
+                      <p class="text-[15px] text-slate-500 font-medium">categoría : <span class="ml-1 text-slate-900"><?php echo htmlspecialchars($reserva['categoriaE']) ?></span></p>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h6 class="text-[15px] font-medium text-slate-500">Fecha</h6>
+                  <p class="text-[15px] text-slate-900 font-medium mt-2">
+                    <?php echo date('d/m/Y', strtotime($reserva['fecha_reserva'])); ?>
+                    <span class="ml-2 text-slate-500"><?php echo date('H:i', strtotime($reserva['hora_reserva'])); ?></span>
+                  </p>
+                </div>
+                <div>
+                  <h6 class="text-[15px] font-medium text-slate-500">Estado</h6>
+                  <?php
+                  $estado = ucfirst($reserva['estado']);
+                  $color = [
+                    'Pendiente' => 'bg-yellow-100 text-yellow-600',
+                    'Confirmado' => 'bg-blue-100 text-blue-600',
+                    'Cancelado' => 'bg-red-100 text-red-600',
+                    'Realizado' => 'bg-green-100 text-green-600',
+                  ][$estado] ?? 'bg-gray-100 text-gray-600';
+                  ?>
+                  <p class="<?php echo $color; ?> text-[13px] font-medium mt-2 inline-block rounded-md py-1.5 px-3"><?php echo htmlspecialchars($estado); ?></p>
+                </div>
+                <div class="md:ml-auto">
+                  <h6 class="text-[15px] font-medium text-slate-500">Precio</h6>
+                  <p class="text-[15px] text-slate-900 font-medium mt-2">$<?php echo number_format($reserva['precio'], 2); ?></p>
+
+
+                  <form action="/app/controllers/serviciosAdmin/realizarCobro.php" method="post" style="display:inline;">
+                    <input type="hidden" name="idreserva" value="<?php echo htmlspecialchars($reserva['id']); ?>">
+                    <input type="hidden" name="id_usuario" value="<?php echo htmlspecialchars($reserva['id_usuario']); ?>">
+                    <input type="hidden" name="fecha_reserva" value="<?php echo htmlspecialchars($reserva['fecha_reserva']); ?>">
+                    <input type="hidden" name="hora_reserva" value="<?php echo htmlspecialchars($reserva['hora_reserva']); ?>">
+                    <input type="hidden" name="monto" value="<?php echo htmlspecialchars($reserva['precio']); ?>">
+                    <input type="hidden" name="id_empleado" value="<?php echo htmlspecialchars($reserva['id_empleado']); ?>">
+                    <!-- Agrega más campos según lo que necesites enviar -->
+                    <button type="submit"
+                      class="px-5 py-2.5 rounded-lg text-white text-sm cursor-pointer tracking-wider font-medium border border-current outline-none bg-gradient-to-tr hover:bg-gradient-to-tl from-yellow-300 to-yellow-500">
+                      Cobrar
+                    </button>
+                  </form>
+
+                </div>
+              </div>
+          <?php
+            }
+          } else {
+            echo '<div class="py-8 text-center text-gray-500">No hay reservaciones para mostrar.</div>';
+          }
+          ?>
+
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
-  </div>
   </div>
 
 </body>
@@ -396,17 +435,7 @@ require_once '../../config/conexion.php'; // Ajusta la ruta según tu estructura
   }
 
   var submenuOpen = false;
-  servicesMenuToggle.addEventListener('click', function(e) {
-    if (isMobile()) {
-      e.preventDefault();
-      submenuOpen = !submenuOpen;
-      if (submenuOpen) {
-        openSubmenu();
-      } else {
-        closeSubmenu();
-      }
-    }
-  });
+
 
   // Reset submenu on resize
   window.addEventListener('resize', function() {

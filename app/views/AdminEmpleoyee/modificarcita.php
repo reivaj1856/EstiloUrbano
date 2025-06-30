@@ -145,7 +145,7 @@ require_once '../../config/conexion.php'; // Ajusta la ruta según tu estructura
             //Ejemplo de consulta SQL para obtener las reservas de un usuario:
             // Conexión a la base de datos (ajusta los datos de conexión según tu configuración)
             try {
-              $stmt = $conexion->prepare("SELECT r.*,s.precio AS precio, s.nombre AS nombre, u.nombre AS nombre_usu, u.apellido AS apellido FROM reservas r INNER JOIN empleados e ON e.id = r.id_empleado INNER JOIN usuarios u ON u.id = e.id_usuario INNER JOIN servicios s ON s.id = r.id_servicio ORDER BY r.fecha_reserva DESC, r.hora_reserva DESC");
+              $stmt = $conexion->prepare("SELECT r.*,s.precio AS precio,e.id_categoria as categoriaE, s.nombre AS nombre, u.nombre AS nombre_usu, u.apellido AS apellido FROM reservas r INNER JOIN empleados e ON e.id = r.id_empleado INNER JOIN usuarios u ON u.id = e.id_usuario INNER JOIN servicios s ON s.id = r.id_servicio ORDER BY r.fecha_reserva DESC, r.hora_reserva DESC");
               // "i" = integer
               $stmt->execute();
 
@@ -181,6 +181,7 @@ require_once '../../config/conexion.php'; // Ajusta la ruta según tu estructura
                     <h6 class="text-[15px] font-semibold text-slate-900"><?php echo htmlspecialchars($reserva['nombre']); ?></h6>
                     <div class="mt-2">
                       <p class="text-[15px] text-slate-500 font-medium">Empleada : <span class="ml-1 text-slate-900"><?php echo htmlspecialchars($reserva['nombre_usu']) . " " . htmlspecialchars($reserva['apellido']) ?></span></p>
+                      <p class="text-[15px] text-slate-500 font-medium">categoría : <span class="ml-1 text-slate-900"><?php echo htmlspecialchars($reserva['categoriaE']) ?></span></p>
                     </div>
                   </div>
                 </div>
@@ -211,6 +212,7 @@ require_once '../../config/conexion.php'; // Ajusta la ruta según tu estructura
 
                   <form action="/app/views/AdminEmpleoyee/modificarcitaSelect.php" method="get" style="display:inline;">
                     <input type="hidden" name="id" value="<?php echo htmlspecialchars($reserva['id']); ?>">
+                    <input type="hidden" name="id_categoria" value="<?php echo htmlspecialchars($reserva['categoriaE']); ?>">
                     <input type="hidden" name="fecha_reserva" value="<?php echo htmlspecialchars($reserva['fecha_reserva']); ?>">
                     <input type="hidden" name="hora_reserva" value="<?php echo htmlspecialchars($reserva['hora_reserva']); ?>">
                     <input type="hidden" name="estado" value="<?php echo htmlspecialchars($reserva['estado']); ?>">
@@ -435,17 +437,7 @@ require_once '../../config/conexion.php'; // Ajusta la ruta según tu estructura
   }
 
   var submenuOpen = false;
-  servicesMenuToggle.addEventListener('click', function(e) {
-    if (isMobile()) {
-      e.preventDefault();
-      submenuOpen = !submenuOpen;
-      if (submenuOpen) {
-        openSubmenu();
-      } else {
-        closeSubmenu();
-      }
-    }
-  });
+  
 
   // Reset submenu on resize
   window.addEventListener('resize', function() {

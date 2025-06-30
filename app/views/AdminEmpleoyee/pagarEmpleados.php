@@ -14,7 +14,7 @@ require_once '../../config/conexion.php'; // Ajusta la ruta según tu estructura
 </head>
 
 <body>
-  <header
+   <header
     class="flex border-b border-gray-300 bg-white min-h-[70px] tracking-wide relative z-50">
     <div class="px-4 py-4 w-full flex items-center">
       <div
@@ -63,7 +63,7 @@ require_once '../../config/conexion.php'; // Ajusta la ruta según tu estructura
                 href="/app/views/AdminEmpleoyee/modificarcita.php"
                 class="hover:text-yellow-400 text-[18px] font-semibold text-gray-600 block">Modificar Citas</a>
             </li>
-            
+
             <li class="max-lg:border-b max-lg:border-gray-300 max-lg:py-3">
               <a
                 href="/app/views/AdminEmpleoyee/cobrarcitas.php"
@@ -74,14 +74,14 @@ require_once '../../config/conexion.php'; // Ajusta la ruta según tu estructura
                 href="/app/views/AdminEmpleoyee/pagarEmpleados.php"
                 class="hover:text-yellow-400 text-gray-600 text-[18px] font-semibold block">Pagar Empleados</a>
             </li>
-            
+
           </ul>
         </div>
 
         <div class="flex items-center space-x-8 max-lg:ml-auto">
 
 
-         
+
           <form method="post" style="display:inline;" action="/app/controllers/loginCliente/logout.php">
             <button type="submit"
               class="px-5 py-2.5 rounded-lg cursor-pointer text-white text-sm tracking-wider font-medium border border-current outline-none bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-700">
@@ -107,94 +107,66 @@ require_once '../../config/conexion.php'; // Ajusta la ruta según tu estructura
     </div>
   </header>
 
-  <!-- Portada Noticias -->
-<div
-  class="w-full h-[250px] md:h-[250px] bg-no-repeat bg-cover bg-center flex items-center justify-center"
-  style="background-image: url(https://cdn.shopify.com/s/files/1/0479/4558/0694/files/chio-lecca-blog-estilo-urbano-hip-hop.jpg?v=1721338322);">
-  <div class="container mx-auto text-center">
-    <h2 class="text-5xl md:text-6xl font-bold text-white mb-6">Noticias Estilo Urbano</h2>
-  </div>
-</div>
-
-<!-- Cuerpo Noticias -->
-<div class="p-6">
-  <div class="max-w-screen-xl max-md:max-w-lg mx-auto">
-    <div class="bg-white p-6 sm:p-8 text-center">
-      <h3 class="text-2xl font-semibold text-slate-900 mb-4">Lo último en nuestro salón</h3>
-      <p class="text-slate-600 text-lg">
-        Descubre las últimas novedades, promociones, y eventos especiales de nuestro salón de estética en Bolivia.
-        ¡Entérate de todo lo nuevo que tenemos para ti en Estilo Urbano!
-      </p>
+  <div
+    class="w-full h-[250px] md:h-[250px] bg-no-repeat bg-cover bg-center flex items-center justify-center"
+    style="
+    background-image: url(https://cdn.shopify.com/s/files/1/0479/4558/0694/files/chio-lecca-blog-estilo-urbano-hip-hop.jpg?v=1721338322);
+  ">
+    <div class="container mx-auto text-center">
+      <h2 class="text-6xl font-bold text-white mb-6">AL ESTILO URBANO</h2>
     </div>
+  </div>
 
-    <div class="p-4 mx-auto lg:max-w-8xl md:max-w-8xl">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+  <div class="max-w-7xl max-lg:max-w-2xl mx-auto p-4">
+    <h1 class="text-xl font-semibold text-slate-900">Reservar cita</h1>
+    <div class="grid lg:grid-cols-1 lg:gap-x-6 gap-x-6 gap-y-8 mt-6">
 
-        <!-- Noticia 1 -->
-        <div class="bg-white flex flex-col rounded-sm overflow-hidden shadow-md hover:scale-[1.01] transition-all">
-          <a href="#" class="block">
-            <img src="https://impulsapopular.com/wp-content/uploads/2019/06/4504-Pasos-para-abrir-un-sal%C3%B3n-de-belleza.jpg"
-              alt="Nueva apertura"
-              class="w-full aspect-[18/24] object-cover object-right" />
-            <div class="p-4">
-              <h5 class="text-base font-semibold text-slate-900">¡Nueva sede en Cochabamba!</h5>
-              <p class="mt-2 text-sm text-slate-700">
-                Estilo Urbano abre sus puertas en Cochabamba con servicios exclusivos y promociones por inauguración.
-              </p>
-            </div>
-          </a>
+
+      <div class="lg:col-span-1 space-y-6 w-auto">
+        <div class="flex flex-col gap-6 bg-white px-4 py-6 rounded-md shadow-sm border border-gray-200">
+          <?php
+          // 1. Capturar el ID desde la URL
+          $id = isset($_GET['id']) ? intval($_GET['id']) : null;
+          // 2. Conectarse a la base de datos
+
+          $id_Uempleado = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
+          // 3. Consulta de empleados por categoría
+          $query = "SELECT s.*, u.*,u2.id as id_empleado FROM empleados s INNER JOIN usuarios u ON u.id = s.id_usuario INNER JOIN empleados u2 on u2.id_usuario = $id_Uempleado";
+          $resultado = $conexion->query($query);
+
+          // 4. Verificar y mostrar
+          if ($resultado && $resultado->num_rows > 0) {
+            while ($row = $resultado->fetch_assoc()) {
+              echo "<div class='flex gap-6 sm:gap-4 max-sm:flex-col mb-6'>
+                      <div class='w-max h-30 max-sm:w-24 max-sm:h-24 shrink-0'>
+                        <img src='https://media.istockphoto.com/id/853924196/es/foto/peluquer%C3%ADa-mujer-en-pie-en-el-sal%C3%B3n-de.jpg?s=612x612&w=0&k=20&c=fno8_zpLJQaHqOLoVDI0NGu0l9Y-l5-5ka0uOEnWzT0=' class='w-full h-full object-contain' />
+                      </div>
+                      <div class='flex flex-col gap-4'>
+                        <div>
+                          <h3 class='text-sm sm:text-base font-semibold text-slate-900'>" . htmlspecialchars($row['nombre']) . " " . htmlspecialchars($row['apellido']) . "</h3>
+                            <p>" . htmlspecialchars($row['descripcion']) . "</p>
+                            <form method='post' action='/app/controllers/serviciosAdmin/crearPagosEmpleado.php'>
+                            <input type='hidden' name='id_empleado' value='" . htmlspecialchars($row['id_empleado']) . "'>
+                            <input type='hidden' name='idreserva' value='" . htmlspecialchars($row['id']) . "'>
+                            <input type='hidden' name='id_usuario' value='" . htmlspecialchars($row['id_usuario']) . "'>
+                            <input type='hidden' name='id_categoria' value='" . htmlspecialchars($row['id_categoria']) . "'>
+                            <button type='submit'
+                              class='px-5 py-2.5 rounded-lg text-white text-sm cursor-pointer tracking-wider font-medium border border-current outline-none bg-gradient-to-tr hover:bg-gradient-to-tl from-yellow-300 to-yellow-500'>
+                              Realizar Pago de sueldos
+                            </button>
+                            </form>
+                        </div>
+                        
+                      </div>
+                    </div>";
+            }
+          } else {
+            echo "<li class='py-2.5 px-5 text-slate-500 text-sm'>No hay estilistas disponibles.</li>";
+          }
+          ?>
         </div>
-
-        <!-- Noticia 2 -->
-        <div class="bg-white flex flex-col rounded-sm overflow-hidden shadow-md hover:scale-[1.01] transition-all">
-          <a href="#" class="block">
-            <img src="https://thenailbarspany.com/wp-content/uploads/2024/09/2728.jpg"
-              alt="Manicure" class="w-full aspect-[18/24] object-cover object-top" />
-            <div class="p-4">
-              <h5 class="text-base font-semibold text-slate-900">Tendencias en uñas 2025</h5>
-              <p class="mt-2 text-sm text-slate-700">
-                Descubre los estilos de manicure más solicitados esta temporada. ¡Te damos los mejores tips!
-              </p>
-            </div>
-          </a>
-        </div>
-
-        <!-- Noticia 3 -->
-        <div class="bg-white flex flex-col rounded-sm overflow-hidden shadow-md hover:scale-[1.01] transition-all">
-          <a href="#" class="block">
-            <img src="https://www.dermahg.es/wp-content/uploads/2019/07/Salud_Capilar.jpg"
-              alt="Cuidado capilar"
-              class="w-full aspect-[18/24] object-cover object-right" />
-            <div class="p-4">
-              <h5 class="text-base font-semibold text-slate-900">Nuevos tratamientos capilares</h5>
-              <p class="mt-2 text-sm text-slate-700">
-                Incorporamos tratamientos orgánicos, sin amoníaco y 100% veganos para el cuidado de tu cabello.
-              </p>
-            </div>
-          </a>
-        </div>
-
-        <!-- Noticia 4 -->
-        <div class="bg-white flex flex-col rounded-sm overflow-hidden shadow-md hover:scale-[1.01] transition-all">
-          <a href="#" class="block">
-            <img src="https://blog.tinkerlink.com/wp-content/uploads/2019/01/Dise%C3%B1o-sin-t%C3%ADtulo-14-1200x675.png"
-              alt="Makeup news"
-              class="w-full aspect-[18/24] object-cover object-left" />
-            <div class="p-4">
-              <h5 class="text-base font-semibold text-slate-900">Curso gratuito de automaquillaje</h5>
-              <p class="mt-2 text-sm text-slate-700">
-                Inscríbete gratis a nuestro curso virtual de automaquillaje para clientes del salón. ¡Cupos limitados!
-              </p>
-            </div>
-          </a>
-        </div>
-
       </div>
     </div>
-  </div>
-</div>
-
-  </div>
   </div>
 
 </body>
@@ -355,6 +327,7 @@ require_once '../../config/conexion.php'; // Ajusta la ruta según tu estructura
   </div>
 </footer>
 
+
 </html>
 <script>
   var toggleOpen = document.getElementById('toggleOpen');
@@ -414,5 +387,80 @@ require_once '../../config/conexion.php'; // Ajusta la ruta según tu estructura
       closeSubmenu();
       submenuOpen = false;
     }
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    let dropdownToggle = document.getElementById('dropdownToggle');
+    let dropdownMenu = document.getElementById('dropdownMenu');
+
+    // Ocultar el menú por defecto
+    dropdownMenu.classList.add('hidden');
+    dropdownMenu.classList.remove('block');
+
+    function toggleDropdown() {
+      dropdownMenu.classList.toggle('hidden');
+      dropdownMenu.classList.toggle('block');
+    }
+
+    function hideDropdown() {
+      dropdownMenu.classList.add('hidden');
+      dropdownMenu.classList.remove('block');
+    }
+
+    dropdownToggle.addEventListener('click', (event) => {
+      event.stopPropagation(); // Prevents triggering document click
+      toggleDropdown();
+    });
+
+    // Hide dropdown when <li> is clicked
+    dropdownMenu.querySelectorAll('.dropdown-item').forEach((li) => {
+      li.addEventListener('click', () => {
+        hideDropdown();
+      });
+    });
+
+    // Hide dropdown when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!dropdownMenu.contains(event.target) && event.target !== dropdownToggle) {
+        hideDropdown();
+      }
+    });
+  });
+  ///
+  document.addEventListener('DOMContentLoaded', () => {
+    let dropdownToggle1 = document.getElementById('dropdownToggle1');
+    let dropdownMenu1 = document.getElementById('dropdownMenu1');
+
+    // Ocultar el menú por defecto
+    dropdownMenu1.classList.add('hidden');
+    dropdownMenu1.classList.remove('block');
+
+    function toggleDropdown() {
+      dropdownMenu1.classList.toggle('hidden');
+      dropdownMenu1.classList.toggle('block');
+    }
+
+    function hideDropdown() {
+      dropdownMenu1.classList.add('hidden');
+      dropdownMenu1.classList.remove('block');
+    }
+
+    dropdownToggle1.addEventListener('click', (event) => {
+      event.stopPropagation(); // Previene que se cierre al hacer click en el botón
+      toggleDropdown();
+    });
+
+    // Ocultar el menú al hacer click en una opción
+    dropdownMenu1.querySelectorAll('.dropdown-item').forEach((li) => {
+      li.addEventListener('click', () => {
+        hideDropdown();
+      });
+    });
+
+    // Ocultar el menú al hacer click fuera
+    document.addEventListener('click', (event) => {
+      if (!dropdownMenu1.contains(event.target) && event.target !== dropdownToggle1) {
+        hideDropdown();
+      }
+    });
   });
 </script>

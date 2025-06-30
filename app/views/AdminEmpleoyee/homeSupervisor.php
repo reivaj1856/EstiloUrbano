@@ -396,17 +396,7 @@ require_once '../../config/conexion.php'; // Ajusta la ruta según tu estructura
   }
 
   var submenuOpen = false;
-  servicesMenuToggle.addEventListener('click', function(e) {
-    if (isMobile()) {
-      e.preventDefault();
-      submenuOpen = !submenuOpen;
-      if (submenuOpen) {
-        openSubmenu();
-      } else {
-        closeSubmenu();
-      }
-    }
-  });
+  
 
   // Reset submenu on resize
   window.addEventListener('resize', function() {
