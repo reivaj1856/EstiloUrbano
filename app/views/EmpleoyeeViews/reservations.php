@@ -411,7 +411,7 @@ require_once '../../config/conexion.php'; // Ajusta la ruta según tu estructura
     if (servicesMenuToggle && servicesSubmenu) {
         // Solo se ejecuta si ambos existen
         function isMobile() {
-            return window.innerWidth <script 1024;
+            return window.innerWidth < 1024;
         }
 
         function closeSubmenu() {
